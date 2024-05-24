@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This command lists all running processes on the system.
+# It uses the ps command with the following options:
+#   - a: Display information about all processes on the system.
+#   - u: Include the process owner in the output.
+#   - x: Display processes that are not attached to a terminal.
+#   - f: Full format of the command.
+
+ps auxf
+

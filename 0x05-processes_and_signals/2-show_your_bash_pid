@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Display processes containing bash name
+# This script uses the `ps` command to list all processes
+# and the `grep` command to filter the output by the word "bash".
+# The `auxf` options enable full listing of processes, including
+# process information such as user, CPU, memory, and command.
+# The `grep` command is used to search for the word "bash" in the output.
+
+ps auxf | grep bash

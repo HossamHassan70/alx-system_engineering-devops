@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Kill the process with the name "4-to_infinity_and_beyond"
+# This script uses the `pgrep` command to find the process ID (PID)
+# of the process with the given name. The `-f` option is used to
+# match the entire command line of the process.
+# The `kill` command is then used to send the `SIGTERM` signal to the
+# process with the given PID, which terminates the process.
+
+#   This script assumes that the process with the name
+#   "4-to_infinity_and_beyond" is currently running.
+
+kill "$(pgrep -f ./4-to_infinity_and_beyond)"
