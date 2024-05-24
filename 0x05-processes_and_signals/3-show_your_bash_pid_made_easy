@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-
 # Display all processes that are currently running and contain the word "bash"
 # in their command line.
-# Display processes with the word "bash" in their command line.
-# The pgrep command is used to list the process IDs (PIDs) of all processes
-# that contain the word "bash" in their command line. The -l option is used to
-# display the full command line of each process.
-
 pgrep -l bash

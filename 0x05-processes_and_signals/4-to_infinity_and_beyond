@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
-
 # This script runs indefinitely and prints "To infinity and beyond" to the console every 2 seconds.
-# It uses a while loop that never terminates and the sleep command to pause execution for 2 seconds.
-# The echo command is used to print the message "To infinity and beyond" to the console.
 
-# Run the loop indefinitely
 while true; do
-    # Print the message "To infinity and beyond" to the console
     echo "To infinity and beyond"
-    
-    # Pause execution for 2 seconds
     sleep 2
 done
