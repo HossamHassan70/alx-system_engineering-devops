@@ -1,14 +1,3 @@
 #!/usr/bin/env bash
-
 # Kill the process with the name "7-highlander"
-# This script uses the `pgrep` command to find the process ID (PID)
-# of the process with the given name. The `-f` option is used to
-# match the entire command line of the process.
-# The `kill` command is then used to send the `SIGKILL` signal to the
-# process with the given PID, which terminates the process immediately.
-# The `pgrep` command is executed with the `-f` option to match the entire
-# command line of the process, which in this case is `./7-highlander`.
-# The `kill` command is executed with the `-KILL` option to send the `SIGKILL`
-# signal to the process with the given PID.
-
 kill -KILL "$(pgrep -f ./7-highlander)"
