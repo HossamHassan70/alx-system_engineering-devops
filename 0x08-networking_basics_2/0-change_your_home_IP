@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
-# This command for configure Ubuntu Server:
-#   for - localhost Resolve to 127.0.0.2
-#   for - Facebook.com Resolves to 8.8.8.8
 
+# This script changes the home IP address in the hosts file.
+# It backs up the original hosts file, replaces the line with 127.0.0.1 with 
+# 127.0.0.2, and appends a line with the IP address and hostname for Facebook.
+
+# Copy the hosts file to a new file
 cp /etc/hosts ~/hosts.new
-sed -i s/127.0.0.1/127.0.0.2/ ~/hosts.new
+
+# Replace the line with 127.0.0.1 with 127.0.0.2
+# The 's' flag means substitute (replace)
+# The 'i' flag means ignore case
+# The '~' before the file name means it's in the home directory
+sed -i 's/127.0.0.1/127.0.0.2/' ~/hosts.new
+
+# Append a line with the IP address and hostname for Facebook
+# The '__' is used to separate the IP address and hostname
+# The '>>' means append to the end of the file
 echo "8.8.8.8__________facebook.com" >> ~/hosts.new
+
+# Replace the original hosts file with the new file
+# The '-f' flag means force (overwrite without asking)
+# The '~' before the file name means it's in the home directory
 cp -f ~/hosts.new /etc/hosts

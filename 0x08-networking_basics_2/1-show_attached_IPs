@@ -1,4 +1,20 @@
 #!/usr/bin/env bash
 # This command for Script tp Display all IPV4 IPS
 
-ifconfig -a | grep inet | cut -d: -f2 | cut -d" "  -f1
+# This script displays all IPv4 addresses attached to the system.
+# It uses the 'ifconfig' command to get the network interface details,
+# the 'grep' command to filter out lines containing the word 'inet',
+# the 'cut' command to extract the IPv4 address from the output,
+# and the 'cut' command again to remove the leading whitespace.
+
+# Get the network interface details
+network_interfaces=$(ifconfig -a)
+
+# Filter out lines containing the word 'inet'
+inet_lines=$(echo "$network_interfaces" | grep inet)
+
+# Extract the IPv4 address from the filtered lines
+ipv4_addresses=$(echo "$inet_lines" | cut -d: -f2 | cut -d" " -f1)
+
+# Print the extracted IPv4 addresses
+echo "$ipv4_addresses"
