@@ -22,3 +22,30 @@ while true; do
     echo "To infinity and beyond"
     sleep 2
 done
+#!/bin/bash
+
+# Create the PID file
+echo $$ > /var/run/myscript.pid
+
+# Start an infinite loop
+while true; do
+    echo "To infinity and beyond"
+
+    # Wait for 2 seconds
+    sleep 2
+done &
+
+# Store the process ID of the loop in a variable
+pid=$!
+
+# Trap SIGTERM signals and perform cleanup
+trap 'echo "I hate the kill command" && rm /var/run/myscript.pid && kill $pid && exit' SIGTERM
+
+# Trap SIGINT signals and echo a message
+trap 'echo "Y U no love me?!"' SIGINT
+
+# Trap SIGQUIT signals and perform cleanup
+trap 'echo "SIGQUIT received" && rm /var/run/myscript.pid && kill $pid && exit' SIGQUIT
+
+# Wait for the loop to finish
+wait $pid
